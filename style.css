@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
+
+:root {
+  --clr-white: hsla(0, 0%, 98%, 1);
+  --clr-light-purple: hsla(268, 100%, 86%, 1);
+  --clr-purple-hover: hsla(268, 55%, 71%, 1);
+  --clr-dark-purple: hsla(268, 34%, 53%, 1);
+  --clr-light-blue: hsla(192, 90%, 77%, 1);
+  --clr-blue-hover: hsla(192, 54%, 64%, 1);
+  --clr-dark-blue: hsla(192, 37%, 48%, 1);
+  --clr-dark-grey: hsla(240, 10%, 57%, 1);
+  --clr-black: hsla(240, 21%, 20%, 1);
+}
+
+/* RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a,
+a:active {
+  text-decoration: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* BUTTONS */
+
+.btn {
+  border: none;
+  border-radius: 1.8125rem;
+  color: white;
+  cursor: pointer;
+  font-weight: 900;
+  padding: 1rem 1.8rem;
+  transition: all 0.2s ease-out;
+}
+
+.btn-purple {
+  background: var(--clr-dark-purple);
+}
+
+.btn-purple:hover {
+  background: var(--clr-purple-hover);
+}
+
+.btn-purple span {
+  color: var(--clr-light-purple);
+}
+
+.btn-blue {
+  background: var(--clr-dark-blue);
+}
+
+.btn-blue:hover {
+  background: var(--clr-blue-hover);
+}
+
+.btn-blue span {
+  color: var(--clr-light-blue);
+}
+
+/* HEADER */
+
+header img {
+  margin: 3.5rem auto;
+}
+
+/* HERO */
+
+@media screen and (min-width: 768px) {
+  header img {
+    margin: 5rem auto 3.5rem auto;
+  }
+}
