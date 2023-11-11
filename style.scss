@@ -89,6 +89,11 @@ p {
   line-height: 1.625rem;
 }
 
+.container {
+  margin-inline: auto;
+  max-width: 69.375rem;
+}
+
 /* BUTTONS */
 
 .btn {
@@ -99,6 +104,13 @@ p {
   font-weight: 900;
   padding: 1rem 1.8rem;
   transition: all 0.2s ease-out;
+}
+
+@media screen and (min-width: 768px) {
+  .btn {
+    padding: 1rem 2.5rem;
+  }
+
 }
 
 .btn-purple {
@@ -156,6 +168,8 @@ header img {
     font-size: 1rem;
     padding-inline: 1.5rem;
     margin-bottom: 2rem;
+    max-width: 33rem;
+    margin-inline: auto;
   }
 
   .btn-container {
@@ -167,6 +181,25 @@ header img {
 
   .btn {
     width: fit-content;
+  }
+
+  @media screen and (min-width: 768px) {
+    background: url("./images/desktop/image-hero-left.png"), url("./images/desktop/image-hero-right.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: left -2.5vw center, right -2.5vw center;
+
+    h1 {
+      font-size: 4rem;
+      max-width: 30rem;
+    }
+
+
+    .btn-container {
+      flex-direction: row;
+      justify-content: center;
+    }
+
   }
 }
 
@@ -210,9 +243,14 @@ header img {
     display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
 
     img {
       border-radius: 18px;
+    }
+
+    @media screen and (min-width: 768px) {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -229,11 +267,15 @@ header img {
   h3 {
     color: var(--clr-black);
     margin-block: 1.5rem 2rem;
+    max-width: 26rem;
+    margin-inline: auto;
   }
 
   p {
     color: var(--clr-dark-grey);
     font-size: 1rem;
+    max-width: 29rem;
+    margin-inline: auto;
   }
 }
 
@@ -247,6 +289,11 @@ footer {
   background-repeat: no-repeat;
   color: var(--clr-white);
   padding: 7rem 1.5rem 6rem 1.5rem;
+
+  &>* {
+    position: relative;
+    z-index: 2;
+  }
 
   .decorative-number {
     background: white;
@@ -291,12 +338,26 @@ footer {
   p {
     font-size: 1.125rem;
     margin-bottom: 2rem;
+    max-width: 35rem;
+    margin-inline: auto;
   }
-}
 
-footer>* {
-  position: relative;
-  z-index: 2;
+  @media screen and (min-width: 768px) {
+    .container {
+      display: flex;
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    h3,
+    p {
+      max-width: 21.875rem;
+    }
+
+    .btn {
+      margin-top: 1rem;
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
