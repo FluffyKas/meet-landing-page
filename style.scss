@@ -321,7 +321,7 @@ header img {
 
 footer {
   position: relative;
-  background: url('../images/mobile/image-footer.jpg');
+  background: url('./images/mobile/image-footer.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -358,6 +358,11 @@ footer {
   }
 
   @media screen and (min-width: $breakpoint-large) {
+    background: url('./images/desktop/image-footer.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
     .container {
       display: flex;
       align-items: flex-start;
