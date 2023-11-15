@@ -12,7 +12,7 @@
     <header>
       <img src="./images/logo.svg" alt="Meet." />
     </header>
-    <main>
+    <main aria-live="polite">
       <section class="hero">
         <h1>Group Chat for Everyone</h1>
         <p>Meet makes it easy to connect with others face-to-face virtually and collaborate across any device.</p>
@@ -21,7 +21,7 @@
           <button class="btn btn-purple">What is it?</button>
         </div>
       </section>
-      <section class="features">
+      <section class="features observed">
         <div class="decorative-number" aria-hidden="true">01</div>
         <div class="container">
           <div class="img-container">
@@ -41,11 +41,13 @@
     </main>
     <footer>
       <div class="decorative-number" aria-hidden="true">02</div>
-      <div class="container">
+      <div class="container observed">
         <h3>Experience more together</h3>
         <p>Stay connected with reliable HD meetings and unlimited one-on-one and group video sessions.</p>
         <button class="btn btn-purple">Download <span>v1.3</span></button>
       </div>
     </footer>
+
+    <script src="./index.js"></script>
   </body>
 </html>
