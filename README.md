@@ -27,11 +27,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![](./screenshots/desktop.png)
+![](./screenshots/mobile.png)
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [Add live site URL here](https://kas-meet-landing-page.netlify.app/)
 
 ## My process
 
@@ -41,15 +42,8 @@ Users should be able to:
 - SCSS
 - Vite
 - Mobile-first workflow
-
-### What I learned
-
-### Continued development
-
-### Useful resources
+- vanilla JS
 
 ## Author
 
 - Frontend Mentor - [@FluffyKas](https://www.frontendmentor.io/profile/FluffyKas)
-
-## Acknowledgments
