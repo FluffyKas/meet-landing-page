@@ -110,13 +110,24 @@ p {
   font-weight: 900;
   padding: 1rem 1.8rem;
   transition: all 0.2s ease-out;
-}
 
-@media screen and (min-width: $breakpoint-medium) {
-  .btn {
+  @media screen and (min-width: $breakpoint-medium) {
     padding: 1rem 2.5rem;
   }
 
+  &:focus {
+    outline: 2px dashed $clr-dark-purple;
+    outline-offset: 1px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px dashed $clr-dark-purple;
+    outline-offset: 1px;
+  }
 }
 
 .btn-purple {
