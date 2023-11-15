@@ -1,16 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap');
 
-:root {
-  --clr-white: hsla(0, 0%, 98%, 1);
-  --clr-light-purple: hsla(268, 100%, 86%, 1);
-  --clr-purple-hover: hsla(268, 55%, 71%, 1);
-  --clr-dark-purple: hsla(268, 34%, 53%, 1);
-  --clr-light-blue: hsla(192, 90%, 77%, 1);
-  --clr-blue-hover: hsla(192, 54%, 64%, 1);
-  --clr-dark-blue: hsla(192, 37%, 48%, 1);
-  --clr-dark-grey: hsla(240, 10%, 57%, 1);
-  --clr-black: hsla(240, 21%, 20%, 1);
-}
+/* VARIABLES */
+
+/* Colours */
+
+$clr-white: hsla(0, 0%, 98%, 1);
+$clr-light-purple: hsla(268, 100%, 86%, 1);
+$clr-purple-hover: hsla(268, 55%, 71%, 1);
+$clr-dark-purple: hsla(268, 34%, 53%, 1);
+$clr-light-blue: hsla(192, 90%, 77%, 1);
+$clr-blue-hover: hsla(192, 54%, 64%, 1);
+$clr-dark-blue: hsla(192, 37%, 48%, 1);
+$clr-dark-grey: hsla(240, 10%, 57%, 1);
+$clr-dark-grey-line: hsla(240, 10%, 57%, 0.25);
+$clr-black: hsla(240, 21%, 20%, 1);
+
+/* Breakpoints */
+
+$breakpoint-medium: 48rem;
+$breakpoint-large: 62.5rem;
+$breakpoint-extra-large: 75rem;
 
 /* RESET, GENERAL STYLES */
 
@@ -46,20 +55,10 @@ svg {
   max-width: 100%;
 }
 
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
 p,
 h1,
 h2,
-h3,
-h4,
-h5,
-h6 {
+h3 {
   overflow-wrap: break-word;
 }
 
@@ -82,6 +81,12 @@ h3 {
   font-size: 2rem;
   font-weight: 900;
   line-height: 2.25rem;
+
+  @media screen and (min-width: $breakpoint-medium) {
+    h3 {
+      font-size: 2.5rem;
+    }
+  }
 }
 
 p {
@@ -99,14 +104,15 @@ p {
 .btn {
   border: none;
   border-radius: 1.8125rem;
-  color: white;
+  color: $clr-white;
   cursor: pointer;
+  font: inherit;
   font-weight: 900;
   padding: 1rem 1.8rem;
   transition: all 0.2s ease-out;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $breakpoint-medium) {
   .btn {
     padding: 1rem 2.5rem;
   }
@@ -114,33 +120,67 @@ p {
 }
 
 .btn-purple {
-  background: var(--clr-dark-purple);
+  background: $clr-dark-purple;
 }
 
 .btn-purple:hover {
-  background: var(--clr-purple-hover);
+  background: $clr-purple-hover;
 }
 
 .btn-purple span {
-  color: var(--clr-light-purple);
+  color: $clr-light-purple;
 }
 
 .btn-blue {
-  background: var(--clr-dark-blue);
+  background: $clr-dark-blue;
 }
 
 .btn-blue:hover {
-  background: var(--clr-blue-hover);
+  background: $clr-blue-hover;
 }
 
 .btn-blue span {
-  color: var(--clr-light-blue);
+  color: $clr-light-blue;
+}
+
+/* DECORATIVE NUMBER */
+
+%decorative-number {
+  background: white;
+  border: 1px solid $clr-dark-grey-line;
+  border-radius: 50%;
+  color: $clr-dark-grey;
+  display: grid;
+  font-weight: 900;
+  place-items: center;
+  position: absolute;
+  width: 3.5rem;
+  height: 3.5rem;
+  top: -8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 5.25rem;
+    top: -5.25rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: $clr-dark-grey-line;
+  }
 }
 
 /* HEADER */
 
 header img {
-  margin: 3.5rem auto;
+  margin: 3.8rem auto;
+
+  @media screen and (min-width: $breakpoint-medium) {
+    margin: 5rem auto 3.8rem auto;
+  }
 }
 
 /* HERO */
@@ -148,12 +188,12 @@ header img {
 .hero {
   background: url('./images/tablet/image-hero.png');
   background-repeat: no-repeat;
-  background-size: 112%;
+  background-size: 25.9rem 9.56rem;
   background-position: top center;
   padding-top: 12rem;
 
   h1 {
-    color: var(--clr-black);
+    color: $clr-black;
     font-size: 2.5rem;
     font-weight: 900;
     line-height: 2.75rem;
@@ -164,7 +204,7 @@ header img {
   }
 
   p {
-    color: var(--clr-dark-grey);
+    color: $clr-dark-grey;
     font-size: 1rem;
     padding-inline: 1.5rem;
     margin-bottom: 2rem;
@@ -183,23 +223,34 @@ header img {
     width: fit-content;
   }
 
-  @media screen and (min-width: 768px) {
-    background: url("./images/desktop/image-hero-left.png"), url("./images/desktop/image-hero-right.png");
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-position: left -2.5vw center, right -2.5vw center;
+  @media screen and (min-width: $breakpoint-medium) {
+    background-size: 51.3rem 18.9rem;
+    padding-top: 24rem;
 
     h1 {
-      font-size: 4rem;
-      max-width: 30rem;
+      font-size: 3rem;
+      max-width: 24rem;
+      line-height: 3rem;
     }
-
 
     .btn-container {
       flex-direction: row;
       justify-content: center;
     }
+  }
 
+  @media screen and (min-width: $breakpoint-extra-large) {
+    background: url("./images/desktop/image-hero-left.png"), url("./images/desktop/image-hero-right.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: left -2.5vw center, right -2.5vw center;
+    padding-top: 6rem;
+
+    h1 {
+      font-size: 4rem;
+      line-height: 4rem;
+      max-width: 30rem;
+    }
   }
 }
 
@@ -212,31 +263,7 @@ header img {
   position: relative;
 
   .decorative-number {
-    background: white;
-    border: 1px solid hsla(240, 10%, 57%, 0.25);
-    border-radius: 50%;
-    color: var(--clr-dark-grey);
-    display: grid;
-    font-weight: 900;
-    place-items: center;
-    position: absolute;
-    width: 3.5rem;
-    height: 3.5rem;
-    top: -8rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 5;
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 1px;
-      height: 5.25rem;
-      top: -5.25rem;
-      left: 50%;
-      transform: translateX(-50%);
-      background: hsla(240, 10%, 57%, 0.25);
-    }
+    @extend %decorative-number;
   }
 
   .img-container {
@@ -249,13 +276,13 @@ header img {
       border-radius: 18px;
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $breakpoint-medium) {
       grid-template-columns: repeat(4, 1fr);
     }
   }
 
   h2 {
-    color: var(--clr-dark-blue);
+    color: $clr-dark-blue;
     font-size: 1rem;
     font-weight: 900;
     line-height: 1.625rem;
@@ -265,14 +292,14 @@ header img {
   }
 
   h3 {
-    color: var(--clr-black);
+    color: $clr-black;
     margin-block: 1.5rem 2rem;
     max-width: 26rem;
     margin-inline: auto;
   }
 
   p {
-    color: var(--clr-dark-grey);
+    color: $clr-dark-grey;
     font-size: 1rem;
     max-width: 29rem;
     margin-inline: auto;
@@ -287,7 +314,7 @@ footer {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  color: var(--clr-white);
+  color: $clr-white;
   padding: 7rem 1.5rem 6rem 1.5rem;
 
   &>* {
@@ -295,40 +322,17 @@ footer {
     z-index: 2;
   }
 
-  .decorative-number {
-    background: white;
-    border: 1px solid hsla(240, 10%, 57%, 0.25);
-    border-radius: 50%;
-    color: var(--clr-dark-grey);
-    display: grid;
-    font-weight: 900;
-    place-items: center;
-    position: absolute;
-    width: 3.5rem;
-    height: 3.5rem;
-    top: -1.75rem;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 5;
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 1px;
-      height: 5.25rem;
-      top: -5.25rem;
-      left: 50%;
-      transform: translateX(-50%);
-      background: hsla(240, 10%, 57%, 0.25);
-    }
-  }
-
   &::after {
     content: '';
     position: absolute;
     inset: 0;
-    background-color: var(--clr-dark-blue);
+    background-color: $clr-dark-blue;
     opacity: 0.875;
+  }
+
+  .decorative-number {
+    @extend %decorative-number;
+    top: -1.75rem;
   }
 
   h3 {
@@ -342,7 +346,7 @@ footer {
     margin-inline: auto;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $breakpoint-large) {
     .container {
       display: flex;
       align-items: flex-start;
@@ -357,11 +361,5 @@ footer {
     .btn {
       margin-top: 1rem;
     }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  header img {
-    margin: 5rem auto 3.5rem auto;
   }
 }
